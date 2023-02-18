@@ -10,7 +10,7 @@ import Category from "../Pages/Category";
 import Login from "../Pages/login";
 import Register from "../Pages/register";
 // conponents
-import Layout from "../Components/layout";
+import Layout from "../Components/Layout/layout";
 
 
 const routes = createBrowserRouter([
