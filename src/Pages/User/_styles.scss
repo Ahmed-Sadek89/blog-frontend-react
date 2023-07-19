@@ -1,0 +1,52 @@
+.user{
+    background-color: $sky_blue;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    h3{
+        color: $green;
+        text-transform: capitalize;
+        font-weight: 900;
+        font-size: 30px;
+    }
+    &-content{
+        background-color: $white;
+        padding: 40px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        input{
+            border: none;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            outline: none;
+            transition: $transition;
+            border-radius: 10px;
+            &:focus{
+                border: 1px solid teal;
+            }
+        }
+        button{
+            padding: 20px 30px;
+            background-color: $green;
+            color: $white;
+            text-transform: capitalize;
+        }
+        P{
+            display: flex;
+            flex-direction: row;
+            gap: 6px;
+            span{
+                &:nth-child(2){
+                    color: $green;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

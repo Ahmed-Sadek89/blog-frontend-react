@@ -1,0 +1,40 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 0px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &-left{
+        cursor: pointer;
+        img{
+            width: 100px;
+            height: auto;
+        }
+    }
+    &-right{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        text-transform: uppercase;
+        flex-wrap: wrap;
+        li{
+            cursor: pointer;
+            color: #333;
+            font-size: 15px;
+            transition: $transition;
+            &:hover{
+                font-weight: bold;
+            }
+        }
+        li:nth-child(7){
+            font-weight: bold;
+        }
+        li:nth-child(8){
+            background: $sky_blue;
+            padding: 15px 10px;
+            border-radius: 50%;
+        }
+    }
+}

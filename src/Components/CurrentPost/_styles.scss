@@ -1,0 +1,32 @@
+.post-single-current{
+    &-owner{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        img{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            span{
+                &:nth-child(1){
+                    font-weight: bold;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+    }
+    h1{
+        text-transform: capitalize;
+        font-size: 40px;
+        font-weight: 800;
+    }
+    p{
+        font-weight: 800;
+    }
+}

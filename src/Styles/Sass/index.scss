@@ -1,2 +1,17 @@
 @import 'basics';
+@import 'variables';
+@import 'media';
+
+
+// pages
+@import '../../Pages/SinglePost/styles';
+@import '../../Pages/User/styles';
+
+
+// components
 @import '../../Components/Layout/Styles';
+@import '../../Components/Navbar/Styles';
+@import '../../Components/Post/Styles';
+@import '../../Components/footer/styles';
+@import '../../Components/CurrentPost/styles';
+@import '../../Components/OtherPosts/styles';

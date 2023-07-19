@@ -1,0 +1,89 @@
+{
+    "categories" : ["art", "science", "technology", "cinema", "design", "food"],
+    "posts": [
+        {
+            "id": 1,
+            "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliqu id nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
+            "img": "https://pixabay.com/get/g76a90e4bffcd81e4f1b65dc3e88a2b5960399ab69bc6b9baac1964bceb19329e979166b7c45c8912f9deda1fdab23c723d3a741196e376c11876c5bf7a900874_1280.jpg",
+            "category": "art",
+            "owner":{
+                "username": "john doe",
+                "image": "https://pixabay.com/get/gdd5ca161a03956e5f66a161a26d190e356bc95eaabebad80d7c6c7f3cb5da2feeb869409ee35858288ed78d4809d48fd112a1b6283afa6f56a8e9c6a423c7701_1280.jpg",
+                "post_published": "2 hour"
+            }
+        },
+        {
+            "id": 2,
+            "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliqu id nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
+            "img": "https://pixabay.com/get/ga237ce18010f5f6c4966fb47efae771035a21c567a97b81f2edcca0944b21e2ad8943a348149ae724ea298ee00080bd11a253b9e9032b9aecd5f9a07e7f73c41_1280.jpg",
+            "category": "science",
+            "owner":{
+                "username": "john doe",
+                "image": "https://pixabay.com/get/gdd5ca161a03956e5f66a161a26d190e356bc95eaabebad80d7c6c7f3cb5da2feeb869409ee35858288ed78d4809d48fd112a1b6283afa6f56a8e9c6a423c7701_1280.jpg",
+                "post_published": "2 hour"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliqu id nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
+            "img": "https://pixabay.com/get/g155d9cc69950a5b5700c5a6843c3406570e17fe5d651b9b41a92a6d84c3d8faedace16592364ff715a76e783285104e0a69e6fff28d326702eccc4a49daf6658_1280.jpg",
+            "category": "technology",
+            "owner": {
+                "username": "john doe",
+                "image": "https://pixabay.com/get/gdd5ca161a03956e5f66a161a26d190e356bc95eaabebad80d7c6c7f3cb5da2feeb869409ee35858288ed78d4809d48fd112a1b6283afa6f56a8e9c6a423c7701_1280.jpg",
+                "post_published": "2 hour"
+            }
+        },
+        {
+            "id": 4,
+            "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliqu id nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
+            "img": "https://pixabay.com/get/g2284410e48edad97c0db4e4573766d41dd20c06e702737fa0861c6c3c868b1507921da661604857608e320e7b021ec1c9bd9cb24e12626828b10c108aaa1f29d_1280.jpg",
+            "category": "technology",
+            "owner":{
+                "username": "john doe",
+                "image": "https://pixabay.com/get/gdd5ca161a03956e5f66a161a26d190e356bc95eaabebad80d7c6c7f3cb5da2feeb869409ee35858288ed78d4809d48fd112a1b6283afa6f56a8e9c6a423c7701_1280.jpg",
+                "post_published": "2 hour"
+            }
+        },
+        {
+            "id": 5,
+            "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliqu id nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
+            "img": "https://pixabay.com/get/gb180840309248011cf27320d672d73c2d5009e834375ef86ce307b1687b91a0e24ff59514da5baf2468debf3825b409fdf5b2e962bb6d9f310af0c1443aeabdc_1280.jpg",
+            "category": "science",
+            "owner":{
+                "username": "john doe",
+                "image": "https://pixabay.com/get/gdd5ca161a03956e5f66a161a26d190e356bc95eaabebad80d7c6c7f3cb5da2feeb869409ee35858288ed78d4809d48fd112a1b6283afa6f56a8e9c6a423c7701_1280.jpg",
+                "post_published": "2 hour"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliqu id nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
+            "img": "https://pixabay.com/get/g801b4cbdcf81d4eb196d7532a2f4b6c7fa8d422827202cbd0409a87e94ae6a9769e0c0943f9eb0bf4acafb46cac21ee544eb7130a02807c3b1e3423227c05962_1280.jpg",
+            "category": "cinema",
+            "owner":{
+                "username": "john doe",
+                "image": "https://pixabay.com/get/gdd5ca161a03956e5f66a161a26d190e356bc95eaabebad80d7c6c7f3cb5da2feeb869409ee35858288ed78d4809d48fd112a1b6283afa6f56a8e9c6a423c7701_1280.jpg",
+                "post_published": "2 hour"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliqu id nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
+            "img": "https://pixabay.com/get/g8d62d9b052772241ce6e6c676e5bb98becf1bbf505661ca49c488a909ce0550231d5e8157b10910a4375b2b4db3bb671d8fa64182c67607293fd44781a96de34_1280.jpg",
+            "category": "design",
+            "owner":{
+                "username": "john doe",
+                "image": "https://pixabay.com/get/gdd5ca161a03956e5f66a161a26d190e356bc95eaabebad80d7c6c7f3cb5da2feeb869409ee35858288ed78d4809d48fd112a1b6283afa6f56a8e9c6a423c7701_1280.jpg",
+                "post_published": "2 hour"
+            }
+        }
+    ]
+}

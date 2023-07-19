@@ -17,7 +17,7 @@ body, #root{
 
     .container{
         width: 100%;
-        min-width: 1200px;
+        max-width: 1200px;
         padding: 0px 20px;
         margin: 0px auto;
     }
@@ -27,10 +27,6 @@ body, #root{
         @extend .padding_margin;
     }
 
-    input, input[type='submit'],input:focus, select, button{
-        outline: none;
-        border: none
-    }
 
     button{
         cursor: pointer;
@@ -44,4 +40,9 @@ body, #root{
     img{
         max-width: 100%;
     }
+}
+
+.posts_layout{
+    .post:nth-child(odd){flex-direction: row;}
+    .post:nth-child(even){flex-direction: row-reverse;}
 }
