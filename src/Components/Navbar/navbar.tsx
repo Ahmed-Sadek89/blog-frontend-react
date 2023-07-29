@@ -31,7 +31,7 @@ const Navbar = () => {
         <li>
           <span>sadek..</span>
         </li> */}
-        <li onClick={() => navigate(`/post/add`)}>
+        <li onClick={() => navigate(`/write`)}>
           <span>write</span>
         </li>
       </ul>

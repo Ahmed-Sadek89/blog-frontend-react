@@ -9,11 +9,10 @@ const SinglePost = () => {
   const { posts } = useSelector(( state: rootState ) => state.posts_get);
   const currentPost = posts.find(index => index.id.toString() === post_id);
   const otherPosts = posts.filter(index => index.id.toString() !== post_id);
-  console.log(otherPosts)
   return (
     <div className='post-single'>
       <div className="post-single-current">
-        <CurrentPost post={currentPost} />
+        <CurrentPost post={currentPost} postId={post_id}/>
       </div> 
 
       <div className="post-single-other">

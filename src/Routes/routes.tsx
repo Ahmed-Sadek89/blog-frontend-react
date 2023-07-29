@@ -37,13 +37,10 @@ const routes = createBrowserRouter([
                 element: <User />
             },
             {
-                path: '/post/add',
+                path: '/write',
                 element: <PostForm />
             },
-            {
-                path: '/post/edit/:post_id',
-                element: <PostForm />
-            },
+            
         ]
     },
     // {

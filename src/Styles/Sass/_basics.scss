@@ -30,6 +30,7 @@ body, #root{
 
     button{
         cursor: pointer;
+        border: none;
     }
 
     a{
@@ -39,6 +40,14 @@ body, #root{
 
     img{
         max-width: 100%;
+    }
+    input{
+        &:focus{
+            outline: none;
+        }
+    }
+    input[type='file'] {
+        color: transparent;
     }
 }
 
