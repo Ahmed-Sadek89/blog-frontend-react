@@ -15,6 +15,27 @@ const App = () => {
     dispatch(fetchPosts());
   }, [])
   return (
+    // blog backend
+    // DB design
+    // user ->
+    //   Image
+    //   username
+    //   password
+    // posts -> 
+    //   "id"
+    //   "title"
+    //   "desc": 
+    //   "category",
+    //   "owner":{
+    //       "username" ,
+    //       "image",
+    //       "post_published"
+    //   }
+
+    // categories -> 
+    //   id
+    //   catName
+
       <RouterProvider router={routes} />
   );
 }

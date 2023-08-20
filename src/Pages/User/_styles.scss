@@ -16,37 +16,46 @@
         background-color: $white;
         padding: 40px;
         border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        input{
-            border: none;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-            outline: none;
-            transition: $transition;
-            border-radius: 10px;
-            &:focus{
-                border: 1px solid teal;
-            }
-        }
-        button{
-            padding: 20px 30px;
-            background-color: $green;
-            color: $white;
-            text-transform: capitalize;
-        }
-        P{
+        form {
             display: flex;
-            flex-direction: row;
-            gap: 6px;
-            span{
-                &:nth-child(2){
-                    color: $green;
-                    font-weight: bold;
-                    cursor: pointer;
+            flex-direction: column;
+            gap: 20px; 
+            input{
+                border: none;
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                outline: none;
+                transition: $transition;
+                border-radius: 10px;
+                &:focus{
+                    border: 1px solid teal;
                 }
             }
+            button{
+                padding: 20px 30px;
+                background-color: $green;
+                color: $white;
+                text-transform: capitalize;
+            }
+            P{
+                display: flex;
+                flex-direction: row;
+                gap: 6px;
+                span{
+                    &:nth-child(2){
+                        color: $green;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        &-error{
+            color: red;
+            font-weight: bold;
+            font-style: italic;
+            margin: 10px 0px;
+            text-align: center;
         }
     }
 }
