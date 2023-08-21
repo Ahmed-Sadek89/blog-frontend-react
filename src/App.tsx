@@ -6,12 +6,12 @@ import {
 import routes from "./Routes/routes";
 import { AppDispatch } from "./Redux/store";
 import { fetchPosts } from './Redux/Slices/getPosts.slice';
-import { fetchCategories } from './Redux/Slices/getCategoriesSlice';
+import { categories_getAll } from './Redux/Slices/async_slices/getAllCategories.slice';
 
 const App = () => {
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    dispatch(fetchCategories())
+    dispatch(categories_getAll())
     dispatch(fetchPosts());
   }, [])
   return (

@@ -16,6 +16,12 @@ export type userLogin = {
 
 
 
+export type categoryType = {
+    id: number,
+    cat_name: string,
+    created_at: string
+}
+
 export type postType = {
     id: number,
     title: string,

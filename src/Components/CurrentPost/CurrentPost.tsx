@@ -1,7 +1,8 @@
 import { postType } from '../../Types/types'
 import edit from '../../Images/edit.png'
 import Delete from '../../Images/delete.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 type props = {
   post: postType | undefined,
@@ -9,6 +10,9 @@ type props = {
 }
 
 const CurrentPost = ({ post, postId }: props) => {
+  const token = Cookies.get('authorization');
+  const isAuth = token ? true : false;
+
   return (
     <>
       <img src={post?.img} alt={post?.title} />
@@ -19,12 +23,15 @@ const CurrentPost = ({ post, postId }: props) => {
           <span>published at {post?.owner.post_published} ago</span>
         </div>
         {/* put update delete option if user is auth && this is user's post */}
-        <div className="post-single-current-owner-options">
-          <Link to={`/write?edit=${postId}`} state={post}>
-            <img src={edit} alt="edit" />
-          </Link>
-          <img src={Delete} alt="Delete" />
-        </div>
+        {
+          isAuth === true &&
+          <div className="post-single-current-owner-options">
+            <Link to={`/write?edit=${postId}`} state={post}>
+              <img src={edit} alt="edit" />
+            </Link>
+            <img src={Delete} alt="Delete" />
+          </div>
+        }
       </div>
       <h1>{post?.title}</h1>
       <p>{post?.desc}</p>

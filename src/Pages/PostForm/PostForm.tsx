@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useSelector } from 'react-redux';
 import { rootState } from '../../Redux/store';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 function PostForm() {
-  const { categories } = useSelector((state: rootState) => state.categories_get);
+  const navigate = useNavigate()
+  const token = Cookies.get('authorization');
+  const isAuth = token ? true : false; 
+  useEffect(() => {
+    isAuth === false && navigate('/login')
+  }, [isAuth, navigate])
+  const categories_getAll_state = useSelector((state: rootState) => state.categories_getAll);
   const { state } = useLocation();
   const [title, setTitle] = useState<string>(state?.title || '')
   const [desc, setDesc] = useState<string>(state?.desc || '')
@@ -67,19 +74,19 @@ function PostForm() {
         <div className="form-post-right-side-category">
           <h3>category</h3>
           {
-            categories?.map(index => (
+            categories_getAll_state.data.result?.map(index => (
               <div 
                 className="form-post-right-side-category-btn" 
-                key={index} 
+                key={index.id} 
               >
                 <input
-                  checked={category === index ? true : false}
+                  checked={category === index.cat_name ? true : false}
                   type="radio"
                   name="category"
                   value={category}
-                  onChange={() => handleChange(index, setCategory)}
+                  onChange={() => handleChange(index.cat_name, setCategory)}
                 />
-                <span>{index}</span>
+                <span>{index.cat_name}</span>
               </div>
             ))
           }
