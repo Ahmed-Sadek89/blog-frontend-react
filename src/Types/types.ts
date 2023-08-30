@@ -25,13 +25,13 @@ export type categoryType = {
 export type postType = {
     id: number,
     title: string,
-    desc: string,
-    img: string,
-    category: string,
-    owner: {
+    description: string,
+    post_image: string,
+    cat_name: string,
+    user: {
         username: string,
+        email: string,
         image: string,
-        post_published: string,
     },
 }
 

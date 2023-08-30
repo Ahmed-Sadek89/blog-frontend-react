@@ -15,7 +15,7 @@ const OtherPosts = ({posts}: props) => {
             {
                 posts.map(index => (
                     <div className='post-single-other-all-item' key={index.id}>
-                        <img src={index.img} alt={index.title} />
+                        <img src={index.post_image} alt={index.title} />
                         <h4 onClick={() => handleNavigate(index.id.toString())}>{index.title}</h4>
                         <button onClick={() => handleNavigate(index.id.toString())}>read more</button>
                     </div>

@@ -15,12 +15,13 @@ const CurrentPost = ({ post, postId }: props) => {
 
   return (
     <>
-      <img src={post?.img} alt={post?.title} />
+      <img src={post?.post_image} alt={post?.title} />
       <div className='post-single-current-owner'>
-        <img src={post?.owner.image} alt={post?.owner.username} />
+        <img src={post?.user.image} alt={post?.user.username} />
         <div className='post-single-current-owner-texts'>
-          <span>{post?.owner.username}</span>
-          <span>published at {post?.owner.post_published} ago</span>
+          <span>{post?.user.username}</span>
+          {/* <span>published at {post?.user.post_published} ago</span> */}
+          <span>published at ... ago</span>
         </div>
         {/* put update delete option if user is auth && this is user's post */}
         {
@@ -34,7 +35,7 @@ const CurrentPost = ({ post, postId }: props) => {
         }
       </div>
       <h1>{post?.title}</h1>
-      <p>{post?.desc}</p>
+      <p>{post?.description}</p>
     </>
   )
 }

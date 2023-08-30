@@ -5,14 +5,14 @@ import {
 } from "react-router-dom";
 import routes from "./Routes/routes";
 import { AppDispatch } from "./Redux/store";
-import { fetchPosts } from './Redux/Slices/getPosts.slice';
+import { posts_getAll } from './Redux/Slices/async_slices/getPosts.slice';
 import { categories_getAll } from './Redux/Slices/async_slices/getAllCategories.slice';
 
 const App = () => {
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(categories_getAll())
-    dispatch(fetchPosts());
+    dispatch(posts_getAll());
   }, [])
   return (
     // blog backend

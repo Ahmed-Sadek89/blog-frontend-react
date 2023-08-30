@@ -15,13 +15,13 @@ const Post = ({post}: props ) => {
             {post.title}
           </h1>
         </Link>
-        <p>{post.desc}</p>
+        <p>{post.description}</p>
         <Link to={`/post/${post.id.toString()}`}>
           <button>read more...</button>
         </Link>
       </div>
       <div className="post-background">
-          <img src={post.img} alt={post.title} />
+          <img src={post.post_image} alt={post.title} />
       </div>
     </div>
   )

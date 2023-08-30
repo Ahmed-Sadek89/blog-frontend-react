@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import getPostsSlice from './Slices/getPosts.slice';
+import getPostsSlice from './Slices/async_slices/getPosts.slice';
 import categories_getAll_slice from './Slices/async_slices/getAllCategories.slice';
 import user_register_slice from './Slices/async_slices/register.slice';
 import user_login_slice from './Slices/async_slices/login.slice';

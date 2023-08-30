@@ -6,9 +6,9 @@ import OtherPosts from '../../Components/OtherPosts/OtherPosts';
 
 const SinglePost = () => {
   const { post_id } = useParams();
-  const { posts } = useSelector(( state: rootState ) => state.posts_get);
-  const currentPost = posts.find(index => index.id.toString() === post_id);
-  const otherPosts = posts.filter(index => index.id.toString() !== post_id);
+  const { data } = useSelector(( state: rootState ) => state.posts_get);
+  const currentPost = data.result.find(index => index.id.toString() === post_id);
+  const otherPosts = data.result.filter(index => index.id.toString() !== post_id);
   return (
     <div className='post-single'>
       <div className="post-single-current">

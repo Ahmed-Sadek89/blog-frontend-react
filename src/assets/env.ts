@@ -3,3 +3,11 @@ export const api_link = 'https://blog-sadek.onrender.com/api'
 
 // Post Api
 
+// open postman to test for posts api
+// call it in frontend
+// seel react quill problem to set its data
+// publish 
+// conquer...
+// حمدلله علي السلامة يا بطل
+// ولا يهمك الاسبوعين الي فاتو
+// :)
