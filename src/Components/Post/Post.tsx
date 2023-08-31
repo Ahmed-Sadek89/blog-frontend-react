@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { postType } from '../../Types/types';
 
 type props = {
@@ -6,19 +6,15 @@ type props = {
 }
 
 const Post = ({post}: props ) => {
-
+  const navigate = useNavigate()
   return (
     <div className='post'>
       <div className="post-info">
-        <Link to={`/post/${post.id.toString()}`}>
-          <h1>
+          <h1 onClick={() => navigate(`/post/${post.id.toString()}`)}>
             {post.title}
           </h1>
-        </Link>
-        <p>{post.description}</p>
-        <Link to={`/post/${post.id.toString()}`}>
-          <button>read more...</button>
-        </Link>
+        <p>{`${post.description.slice(0, 200)}...`}</p>
+          <button onClick={() => navigate(`/post/${post.id.toString()}`)}>read more...</button>
       </div>
       <div className="post-background">
           <img src={post.post_image} alt={post.title} />
