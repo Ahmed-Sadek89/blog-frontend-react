@@ -1,87 +1,72 @@
-import { useRef, useState, useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import Cookies from 'js-cookie';
-import { useNavigate } from "react-router-dom"
-import { AppDispatch, rootState } from "../../Redux/store";
-import { user_login } from '../../Redux/Slices/async_slices/login.slice';
-import { userLogin } from '../../Types/types';
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { rootState } from "../../Redux/store";
+import makeInputRef from "../../assets/makeInputRef";
+import setLogin from "./setLogin";
 
 const Login = () => {
-  const dispatch = useDispatch<AppDispatch>()
   const navigate = useNavigate();
 
-  const inputRef = useRef<HTMLInputElement>(null);
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, []);
+  const inputRef = makeInputRef();
 
   const [loginData, setLoginData] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
 
-  const { data, loading, error } = useSelector((state: rootState) => state.user_login_state);
-
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await dispatch(user_login(loginData))
-      .then(({ payload }) => {
-        const { status, token } = payload as userLogin;
-        if ( status === 200 ) {
-          Cookies.set('authorization', token || '')
-          navigate('/')
-        }
-      })
-  }
+  const { data, loading, error } = useSelector(
+    (state: rootState) => state.user_login_state
+  );
+  const handleLogin = setLogin(loginData);
   return (
     <>
-      <form onSubmit={handleLogin} encType='multipart/form-data'>
+      <form onSubmit={handleLogin}>
         <input
-          type='email'
-          placeholder='email'
+          type="email"
+          placeholder="email"
           ref={inputRef}
           required
           disabled={loading}
           value={loginData.email}
           onChange={(e) => {
-            setLoginData(prev => {
+            setLoginData((prev) => {
               return {
                 ...prev,
-                email: e.target.value
-              }
-            })
+                email: e.target.value,
+              };
+            });
           }}
         />
         <input
-          type='password'
-          placeholder='password'
+          type="password"
+          placeholder="password"
           required
           autoComplete="off"
           disabled={loading}
           value={loginData.password}
           onChange={(e) => {
-            setLoginData(prev => {
+            setLoginData((prev) => {
               return {
                 ...prev,
-                password: e.target.value
-              }
-            })
+                password: e.target.value,
+              };
+            });
           }}
         />
-        <button type='submit' disabled={loading}>Login</button>
+        <button type="submit" disabled={loading}>
+          Login
+        </button>
         <p>
           <span>Don't have an account?</span>
-          <span onClick={() => navigate('/register')}>Register</span>
+          <span onClick={() => navigate("/register")}>Register</span>
         </p>
+        {error === true && (
+          <span className="user-content-error">{data.result}</span>
+        )}
       </form>
-      {
-        error === true &&
-        <span className='user-content-error'>{data.result}</span>
-      }
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
