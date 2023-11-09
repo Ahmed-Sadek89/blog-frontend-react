@@ -1,14 +1,15 @@
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../Redux/store";
 import { user_login } from "../../Redux/Slices/async_slices/login.slice";
 import { userLogin } from "../../Types/types";
 import Cookies from "js-cookie";
+import { AppDispatch } from "../../Redux/store";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 
 const setLogin = (loginData: {email: string, password: string}) => {
-  const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const dispatch = useDispatch<AppDispatch>()
+
   async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 

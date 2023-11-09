@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { rootState } from "../../Redux/store";
 import makeInputRef from "../../assets/makeInputRef";
 import setLogin from "./setLogin";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const inputRef = makeInputRef();
 

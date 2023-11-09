@@ -1,12 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import Logo from "../../Images/logo.png";
 import IsUser from "./IsUser";
 import CategoryItems from "./CategoryItems";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  
-
   return (
     <div className="navbar">
       <div className="navbar-left" onClick={() => navigate(`/`)}>

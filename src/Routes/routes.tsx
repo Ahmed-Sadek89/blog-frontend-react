@@ -3,7 +3,7 @@ import {
 } from "react-router-dom";
 // pages
 import Home from "../Pages/Home/home";
-import SinglePost from "../Pages/SinglePost/singlePost";
+import SinglePost from "../Pages/PostPage/PostPage";
 import User from "../Pages/User/User";
 import PostForm from "../Pages/PostForm/PostForm";
 // conponents

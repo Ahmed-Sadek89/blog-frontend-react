@@ -3,8 +3,8 @@ import { rootState } from "../../Redux/store";
 import { useNavigate } from "react-router-dom";
 
 const CategoryItems = () => {
-    const { data } = useSelector((state: rootState) => state.categories_getAll);
   const navigate = useNavigate();
+  const { data } = useSelector((state: rootState) => state.categories_getAll);
   const goToCategory = (catName: string) => {
     navigate(`category/${catName}`);
   };

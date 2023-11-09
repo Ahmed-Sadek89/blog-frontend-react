@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { rootState } from "../../Redux/store";
 import makeInputRef from "../../assets/makeInputRef";
 import setRegister from "./setRegister";
 import setImageChange from "./setImageChange";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
-
   const inputRef = makeInputRef();
 
   const { loading, error, data } = useSelector(

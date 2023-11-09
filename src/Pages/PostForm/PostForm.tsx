@@ -8,7 +8,7 @@ import { rootState } from "../../Redux/store";
 import { useSelector } from "react-redux";
 
 function PostForm() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const token = Cookies.get("authorization");
   const isAuth = token ? true : false;
   useEffect(() => {

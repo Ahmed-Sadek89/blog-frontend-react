@@ -1,13 +1,12 @@
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
 import { checkLogout } from "../../assets/sweetAlert";
-import { getDecodedToken } from "./getDecodedToken";
+import { getDecodedToken } from "../../assets/getDecodedToken";
+import { useNavigate } from "react-router-dom";
 
 const IsUser = () => {
-  const navigate = useNavigate();
   const token = Cookies.get("authorization") || "";
   const isUser = token.length > 0 ? true : false;
-
+  const navigate = useNavigate()
   let decoded = getDecodedToken(token)
   const handleLogout = () => {
     checkLogout();

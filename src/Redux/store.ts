@@ -6,6 +6,7 @@ import user_login_slice from './Slices/async_slices/login.slice';
 import posts_getByCategory_slice from './Slices/async_slices/posts_getByCategory.slice';
 import post_getById_slice from './Slices/async_slices/post_getById.slice';
 import delete_post_by_id_slice from './Slices/async_slices/delete_post_by_id.slice';
+import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
     reducer: {
@@ -23,3 +24,4 @@ export const store = configureStore({
 export type rootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch
+
