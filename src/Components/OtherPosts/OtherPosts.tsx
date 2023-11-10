@@ -6,7 +6,7 @@ type props = {
   posts: postType[] | [];
 };
 const OtherPosts = ({ posts, postId }: props) => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleNavigate = (id: string) => {
     window.scrollTo(0, 0);
     navigate(`/post/${id}`);

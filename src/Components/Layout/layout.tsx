@@ -8,9 +8,7 @@ const layout = () => {
   const { pathname } = useLocation();
   const isLoginPage = pathname === "/login";
   const isRegisterPage = pathname === "/register";
-  const { loading, error } = useSelector(
-    (state: rootState) => state.categories_getAll
-  );
+  const { loading, error } = useSelector((state: rootState) => state.posts_get);
 
   if (isLoginPage || isRegisterPage) {
     return (
