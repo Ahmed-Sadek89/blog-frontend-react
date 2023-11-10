@@ -3,13 +3,11 @@ import { useSelector } from "react-redux";
 import { rootState } from "../../Redux/store";
 
 type props = {
-  category: string;
-  setCategory: React.Dispatch<React.SetStateAction<string>>;
-  handleChange: (state: string, setState: React.Dispatch<string>) => void;
-  
+  categoryId: number;
+  setCategoryId: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const CategoriesBtn = ({ category, setCategory, handleChange }: props) => {
+const CategoriesBtn = ({ categoryId, setCategoryId }: props) => {
   const categories_getAll_state = useSelector(
     (state: rootState) => state.categories_getAll
   );
@@ -19,11 +17,14 @@ const CategoriesBtn = ({ category, setCategory, handleChange }: props) => {
       {categories_getAll_state?.data.result?.map((index) => (
         <div className="form-post-right-side-category-btn" key={index.id}>
           <input
-            checked={category === index.cat_name ? true : false}
+            checked={categoryId === index.id ? true : false}
             type="radio"
-            name="category"
-            value={category}
-            onChange={() => handleChange(index.cat_name, setCategory)}
+            name="categoryId"
+            value={index.id}
+            onChange={(e) => {
+              console.log(e.target.value);
+              setCategoryId(parseInt(e.target.value));
+            }}
           />
           <span>{index.cat_name}</span>
         </div>
