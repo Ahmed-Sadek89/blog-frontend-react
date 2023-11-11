@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { rootState } from "../../Redux/store";
+import { post } from "./postType";
 
 type props = {
   categoryId: number;
-  setCategoryId: React.Dispatch<React.SetStateAction<number>>;
+  setCategoryId: React.Dispatch<React.SetStateAction<post>>;
 };
 
 const CategoriesBtn = ({ categoryId, setCategoryId }: props) => {
@@ -23,7 +24,12 @@ const CategoriesBtn = ({ categoryId, setCategoryId }: props) => {
             value={index.id}
             onChange={(e) => {
               console.log(e.target.value);
-              setCategoryId(parseInt(e.target.value));
+              setCategoryId(prev => {
+                return  {
+                  ...prev,
+                  category_id: parseInt(e.target.value)
+                }
+              });
             }}
           />
           <span>{index.cat_name}</span>

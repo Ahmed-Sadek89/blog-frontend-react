@@ -1,40 +1,53 @@
-import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { useLocation } from "react-router-dom";
 import checkAuth from "./checkAuth";
-import getUserId from "./getUserId";
 import CategoriesBtn from "./CategoriesBtn";
 import ImageInput from "./ImageInput";
+import handlePostAction from "./handlePostAction";
+import postState from "./postState";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function PostForm() {
   checkAuth();
+
   const { state } = useLocation();
-
-  const [title, setTitle] = useState<string>(state?.title || "");
-  const [description, setDescription] = useState<string>(state?.description || "");
-  const [post_image, setPost_image] = useState<string>(state?.post_image || "");
-  const [categoryId, setCategoryId] = useState<number>(
-    state?.category.cat_id || null
+  const [post, setPost] = postState();
+  const [post_image, setPost_image] = useState<File | null>(
+    state?.post_image.name || null
   );
-  const userId = getUserId();
 
-  const handleSubmit = () => {
-    console.log({ title, description, post_image, categoryId, userId });
-  };
+  const handleSubmit = handlePostAction({ ...post, post_image });
+
+  // 1 - UPDATE SLICE
+  // 2 - MAKE LAYUT FOR LOADING AND EROR
   return (
-    <div className="form-post">
+    <form
+      className="form-post"
+      onSubmit={handleSubmit}
+      encType="multipart/form-data"
+    >
       <div className="form-post-left-side">
         <input
           type="text"
           placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          name="title"
+          value={post.title}
+          onChange={(e) =>
+            setPost((prev) => {
+              return { ...prev, title: e.target.value };
+            })
+          }
         />
         <ReactQuill
           theme="snow"
-          value={description}
-          onChange={setDescription}
+          value={post.description}
+          // onChange={setDescription}
+          onChange={(e: string) =>
+            setPost((prev) => {
+              return { ...prev, description: e };
+            })
+          }
           style={{ height: "300px" }}
         />
       </div>
@@ -54,16 +67,19 @@ function PostForm() {
           {/* for input file */}
           <div className="form-post-right-side-publish-btn">
             <button id="uploadFile">save as a draft</button>
-            <button onClick={() => handleSubmit()}>Publish</button>
+            <button type="submit">Publish</button>
           </div>
         </div>
 
         <div className="form-post-right-side-category">
           <h3>category</h3>
-          <CategoriesBtn categoryId={categoryId} setCategoryId={setCategoryId} />
+          <CategoriesBtn
+            categoryId={post.category_id}
+            setCategoryId={setPost}
+          />
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 export default PostForm;

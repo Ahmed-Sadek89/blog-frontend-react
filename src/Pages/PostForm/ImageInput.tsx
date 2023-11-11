@@ -1,23 +1,25 @@
 import React from "react";
 
-
 type props = {
-    post_image: string, 
-    setPost_image: React.Dispatch<React.SetStateAction<string>>
-}
-const ImageInput = ({post_image, setPost_image}: props) => {
+  post_image: File| null;
+  setPost_image: React.Dispatch<React.SetStateAction<File| null>>;
+};
+const ImageInput = ({ post_image, setPost_image }: props) => {
   return (
     <>
       <label htmlFor="uploadFile">
-        {post_image === "" ? "upload file" : `image ${post_image} uploaded`}
+        {post_image === null ? "upload file" : `image ${post_image.name} uploaded`}
       </label>
       <input
         type="file"
+        name="post_image"
         accept="image/png, image/jpeg"
         style={{ display: "none" }}
         id="uploadFile"
         onChange={(e) => {
-            setPost_image(e.target.value);
+          if (e.target.files && e.target.files.length > 0) {
+            setPost_image(e.target.files[0])
+          }
         }}
       />
     </>

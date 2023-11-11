@@ -1,4 +1,3 @@
-import { postType } from "../../Types/types";
 import edit from "../../Images/edit.png";
 import Delete from "../../Images/delete.png";
 import { Link } from "react-router-dom";

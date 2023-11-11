@@ -13,8 +13,6 @@ const setLogin = (loginData: {email: string, password: string}) => {
   async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const formData = new FormData()
-    console.log(formData.get("email"));
     await dispatch(user_login(loginData)).then(({ payload }) => {
       const { status, token } = payload as userLogin;
       if (status === 200) {

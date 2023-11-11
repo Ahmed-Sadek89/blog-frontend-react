@@ -76,6 +76,7 @@ const Register = () => {
         />
         <input
           type="file"
+          accept="image/png, image/jpeg"
           required
           disabled={loading}
           onChange={handleImageChange}
