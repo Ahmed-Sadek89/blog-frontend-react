@@ -81,6 +81,7 @@ const Register = () => {
           disabled={loading}
           onChange={handleImageChange}
         />
+        <p>{image?.name}</p>
         <button type="submit" disabled={loading}>
           Register
         </button>

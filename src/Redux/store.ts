@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import getPostsSlice from './Slices/async_slices/getPosts.slice';
+import getPostsSlice from './Slices/async_slices/posts/getPosts.slice';
 import categories_getAll_slice from './Slices/async_slices/getAllCategories.slice';
 import user_register_slice from './Slices/async_slices/register.slice';
 import user_login_slice from './Slices/async_slices/login.slice';
-import posts_getByCategory_slice from './Slices/async_slices/posts_getByCategory.slice';
-import post_getById_slice from './Slices/async_slices/post_getById.slice';
-import delete_post_by_id_slice from './Slices/async_slices/delete_post_by_id.slice';
+import posts_getByCategory_slice from './Slices/async_slices/posts/posts_getByCategory.slice';
+import post_getById_slice from './Slices/async_slices/posts/post_getById.slice';
+import delete_post_by_id_slice from './Slices/async_slices/posts/delete_post_by_id.slice';
 import addPost_slice from './Slices/async_slices/posts/addPost.slice';
 import updatePost_slice from './Slices/async_slices/posts/updatePost.slice';
 

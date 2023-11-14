@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { postType } from '../../../Types/types';
-import { api_link } from '../../../assets/env';
+
 import axios from 'axios';
+import { postType } from '../../../../Types/types';
+import { api_link } from '../../../../assets/env';
 
 interface postsState {
   data: {

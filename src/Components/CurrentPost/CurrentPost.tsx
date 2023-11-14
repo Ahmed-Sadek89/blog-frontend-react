@@ -6,9 +6,9 @@ import { getDateChanged } from "./getDateChanged";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../Redux/store";
-import { delete_post_by_id } from "../../Redux/Slices/async_slices/delete_post_by_id.slice";
 import { getDecodedToken } from "../../assets/getDecodedToken";
 import { props } from "./CurrentPostProps";
+import { delete_post_by_id } from "../../Redux/Slices/async_slices/posts/delete_post_by_id.slice";
 
 const CurrentPost = ({ postState, postId }: props) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -29,19 +29,19 @@ const CurrentPost = ({ postState, postId }: props) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        dispatch(delete_post_by_id(parseInt(postId || ""))).then(
-          ({ payload }) => {
+        await dispatch(delete_post_by_id({ id: parseInt(postId || '') }))
+          .then(({ payload }) => {
             const res = payload as {
               status: number;
             };
             if (res.status === 200) {
-              window.location.href = "/";
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", "Your file has been deleted.", "success")
+                .then(() => window.location.href = "/")
             }
           }
-        );
+          )
       }
     });
   };

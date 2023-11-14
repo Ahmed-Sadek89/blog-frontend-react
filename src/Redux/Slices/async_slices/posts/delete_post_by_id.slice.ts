@@ -1,19 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { api_link } from '../../../assets/env';
+import { api_link } from '../../../../assets/env';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-
-interface deletePostState {
-    data: {
-        status: number,
-        result: string
-    },
-    loading: boolean,
-    error: boolean
-}
+import { PostOutput, postId, postState } from '../../interfaces/post';
 
 
-const initialState: deletePostState = {
+
+const initialState: postState = {
     data: {
         status: 0,
         result: ''
@@ -22,14 +15,11 @@ const initialState: deletePostState = {
     error: false
 }
 
-export const delete_post_by_id = createAsyncThunk<{
-    status: number,
-    result: string
-}, number>(
+export const delete_post_by_id = createAsyncThunk<PostOutput, postId>(
     'post/deleteById',
-    async (postId, { rejectWithValue }) => {
+    async (paylaod, { rejectWithValue }) => {
         try {
-            const res = await axios.delete(`${api_link}/posts/${postId}`, {
+            const res = await axios.delete(`${api_link}/posts/${paylaod.id}`, {
                 headers: {
                     authorization: Cookies.get('authorization')
                 }
@@ -64,10 +54,7 @@ const delete_post_by_id_slice = createSlice({
                 state.error = false;
             })
             .addCase(delete_post_by_id.rejected, (state, action) => {
-                let payload = action.payload as {
-                    status: number,
-                    result: string
-                }
+                let payload = action.payload as PostOutput
                 state.loading = false;
                 state.data = {
                     status: payload.status,

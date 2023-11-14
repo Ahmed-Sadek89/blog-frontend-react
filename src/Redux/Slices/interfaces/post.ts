@@ -11,7 +11,7 @@ export type PostInputWithId = {
 
 export type PostOutput = {
   status: number;
-  result: string;
+  result: string| post| post[];
 };
 
 export type post = {
@@ -34,6 +34,6 @@ export type post = {
 export type postState = {
   loading: boolean;
   error: boolean;
-  data: PostOutput | post;
+  data: PostOutput | post| post[];
 };
 

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { post_getById } from "../../Redux/Slices/async_slices/post_getById.slice";
+import { post_getById } from "../../Redux/Slices/async_slices/posts/post_getById.slice";
 import { AppDispatch } from "../../Redux/store";
-import { posts_getByCategory } from "../../Redux/Slices/async_slices/posts_getByCategory.slice";
+import { posts_getByCategory } from "../../Redux/Slices/async_slices/posts/posts_getByCategory.slice";
 import { useNavigate, useParams } from "react-router-dom";
 import { postType } from "../../Types/types";
 import { useDispatch } from "react-redux";

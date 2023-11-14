@@ -1,36 +1,36 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { postType } from "../../../Types/types"
+import { postType } from "../../../../Types/types"
 import axios from "axios"
-import { api_link } from "../../../assets/env"
+import { api_link } from "../../../../assets/env"
 
 
-type postByIdState = {
+type postByCategoryState = {
     loading: boolean,
     error: boolean,
     data: {
         status: number,
-        result: postType| undefined
+        result: postType[] | []
     }
 }
 
-const initialState: postByIdState = {
+const initialState: postByCategoryState = {
     loading: false,
     error: false,
     data: {
         status: 0,
-        result: undefined
+        result: []
     }
 }
 
-export const post_getById = createAsyncThunk<{
+export const posts_getByCategory = createAsyncThunk<{
     status: number,
-    result: postType| undefined
+    result: postType[] | []
 },
     number>(
-        'posts/getById',
-        async (Post_id, { rejectWithValue }) => {
+        'posts/getByCategory',
+        async (category_id, { rejectWithValue }) => {
             try {
-                const res = await axios.get(`${api_link}/posts/${Post_id}`)
+                const res = await axios.get(`${api_link}/posts/getlatestPosts/${category_id}`)
                 return res.data
             } catch (error: any) {
                 return rejectWithValue(error.response.data)
@@ -38,21 +38,21 @@ export const post_getById = createAsyncThunk<{
         }
     )
 
-export const post_getById_slice = createSlice({
-    name: 'posts/getById',
+export const posts_getByCategory_slice = createSlice({
+    name: 'posts/getByCategory',
     initialState,
     reducers: {},
     extraReducers: builder => {
         builder
-            .addCase(post_getById.pending, state => {
+            .addCase(posts_getByCategory.pending, state => {
                 state.loading = true;
                 state.error = false,
                     state.data = {
                         status: 0,
-                        result: undefined
+                        result: []
                     }
             })
-            .addCase(post_getById.fulfilled, (state, { payload }) => {
+            .addCase(posts_getByCategory.fulfilled, (state, { payload }) => {
                 state.loading = false;
                 state.error = false,
                     state.data = {
@@ -60,10 +60,10 @@ export const post_getById_slice = createSlice({
                         result: payload.result,
                     }
             })
-            .addCase(post_getById.rejected, (state, action) => {
+            .addCase(posts_getByCategory.rejected, (state, action) => {
                 const payload = action.payload as {
                     status: number,
-                    result: postType| undefined
+                    result: postType[] | []
                 }
                 state.loading = false;
                 state.error = true,
@@ -75,4 +75,4 @@ export const post_getById_slice = createSlice({
     }
 })
 
-export default post_getById_slice.reducer;
+export default posts_getByCategory_slice.reducer;
