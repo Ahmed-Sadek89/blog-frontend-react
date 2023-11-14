@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { post } from "./postType";
 import getUserId from "./getUserId";
 import { useDispatch } from "react-redux";
@@ -18,8 +18,7 @@ const handlePostAction = (post: post) => {
     if (state === null) {
       insertNewPost(formData, dispatch)
     } else {
-      console.log({ ...post, user_id });
-      updateThePost(formData, dispatch)
+      updateThePost(state?.id, formData, dispatch)
     }
   };
   return handleSubmit;

@@ -4,7 +4,10 @@ export type postId = {
 
 export type PostInput = FormData;
 
-export type PostInputWithId = PostInput & postId;
+export type PostInputWithId = {
+  id: number,
+  formData: FormData
+};
 
 export type PostOutput = {
   status: number;

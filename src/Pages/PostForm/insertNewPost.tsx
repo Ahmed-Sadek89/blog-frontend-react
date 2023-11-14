@@ -21,7 +21,7 @@ const insertNewPost = (formData: FormData, dispatch: AppDispatch) => {
         }
       })
       .catch((error) => {
-        console.log({ error });
+        throw new Error(error)
       });
   };
   return insertPost();

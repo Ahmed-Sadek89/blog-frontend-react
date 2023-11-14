@@ -17,8 +17,7 @@ export const updatePost = createAsyncThunk<PostOutput, PostInputWithId>(
   "post/update",
   async (payload, { rejectWithValue }) => {
     try {
-      const { id, ...otherPostInput } = payload;
-      const res = await axios.put(`${api_link}post/${id}`, otherPostInput, {
+      const res = await axios.put(`${api_link}/posts/${payload.id}`, payload.formData, {
         headers: {
           authorization: Cookies.get("authorization"),
         },
