@@ -1,26 +1,36 @@
-// POST PUT DELETE
-export type addPostInput = FormData
-
-export type editPostInput = addPostInput;
-
-export type addPostOutput = {
-  status: number,
-  result: string,
-}
-
-export type editPostOutput = addPostOutput;
-
-export type deletePostOutput = addPostOutput;
-
-export type addPostState = {
-  loading: boolean;
-  error: boolean;
-  data: addPostOutput;
+export type postId = {
+  id: number;
 };
 
-export type editPostState = addPostState
+export type PostInput = FormData;
 
-export type deletePostState = addPostState
+export type PostInputWithId = PostInput & postId;
 
+export type PostOutput = {
+  status: number;
+  result: string;
+};
 
-// GET
+export type post = {
+  id: number;
+  title: string;
+  description: string;
+  post_image: string;
+  category: {
+    cat_id: number;
+    cat_name: string;
+  };
+  user: {
+    username: string;
+    email: string;
+    image: string;
+  };
+  published_at: string,
+};
+
+export type postState = {
+  loading: boolean;
+  error: boolean;
+  data: PostOutput | post;
+};
+

@@ -1,14 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {
-  addPostInput,
-  addPostOutput,
-  addPostState,
-} from "../../interfaces/post";
+
 import axios from "axios";
 import { api_link } from "../../../../assets/env";
 import Cookies from "js-cookie";
+import { PostInput, PostOutput, postState } from "../../interfaces/post";
 
-const initialState: addPostState = {
+const initialState: postState = {
   loading: false,
   error: false,
   data: {
@@ -16,7 +13,7 @@ const initialState: addPostState = {
     result: "",
   },
 };
-export const addPost = createAsyncThunk<addPostOutput, addPostInput>(
+export const addPost = createAsyncThunk<PostOutput, PostInput>(
   "posts/addNewPost",
   async (payload, { rejectWithValue }) => {
     try {
@@ -55,7 +52,7 @@ export const addPost_slice = createSlice({
         state.error = false
     })
     .addCase(addPost.rejected, (state, action) => {
-        const payload = action.payload as addPostOutput;
+        const payload = action.payload as PostOutput;
         state.data = {
             status: payload.status,
             result: payload.result,

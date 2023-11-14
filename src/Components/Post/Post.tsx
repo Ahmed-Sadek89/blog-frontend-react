@@ -13,7 +13,12 @@ const Post = ({ post }: props) => {
         <h1 onClick={() => navigate(`/post/${post.id.toString()}`)}>
           {post.title}
         </h1>
-        <p>{`${post.description.slice(0, 200)}...`}</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: post.description.slice(0, 200) + "...",
+          }}
+        />
+
         <button onClick={() => navigate(`/post/${post.id.toString()}`)}>
           read more...
         </button>

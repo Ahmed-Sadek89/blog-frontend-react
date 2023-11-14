@@ -8,7 +8,7 @@ const postState = () => {
     title: state?.title || "",
     description: state?.description || "",
     post_image: state?.post_image || null,
-    category_id: state?.category.cat_id || NaN,
+    category_id: state?.category.cat_id || null,
   });
 };
 

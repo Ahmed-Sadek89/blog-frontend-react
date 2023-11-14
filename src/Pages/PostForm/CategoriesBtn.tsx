@@ -4,7 +4,7 @@ import { rootState } from "../../Redux/store";
 import { post } from "./postType";
 
 type props = {
-  categoryId: number;
+  categoryId: number| undefined;
   setCategoryId: React.Dispatch<React.SetStateAction<post>>;
 };
 
@@ -23,7 +23,6 @@ const CategoriesBtn = ({ categoryId, setCategoryId }: props) => {
             name="categoryId"
             value={index.id}
             onChange={(e) => {
-              console.log(e.target.value);
               setCategoryId(prev => {
                 return  {
                   ...prev,

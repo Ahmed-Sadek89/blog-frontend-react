@@ -7,6 +7,7 @@ import posts_getByCategory_slice from './Slices/async_slices/posts_getByCategory
 import post_getById_slice from './Slices/async_slices/post_getById.slice';
 import delete_post_by_id_slice from './Slices/async_slices/delete_post_by_id.slice';
 import addPost_slice from './Slices/async_slices/posts/addPost.slice';
+import updatePost_slice from './Slices/async_slices/posts/updatePost.slice';
 
 export const store = configureStore({
     reducer: {
@@ -18,7 +19,8 @@ export const store = configureStore({
         post_getById_state: post_getById_slice,
         posts_getByCategory_state: posts_getByCategory_slice,
         delete_post_by_id_state: delete_post_by_id_slice,
-        addNewPostState: addPost_slice
+        addNewPostState: addPost_slice,
+        updatePostState: updatePost_slice,
     }
 })
 

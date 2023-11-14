@@ -10,8 +10,6 @@ import { delete_post_by_id } from "../../Redux/Slices/async_slices/delete_post_b
 import { getDecodedToken } from "../../assets/getDecodedToken";
 import { props } from "./CurrentPostProps";
 
-
-
 const CurrentPost = ({ postState, postId }: props) => {
   const dispatch = useDispatch<AppDispatch>();
   const token = Cookies.get("authorization") || "";
@@ -67,7 +65,12 @@ const CurrentPost = ({ postState, postId }: props) => {
         )}
       </div>
       <h1>{result?.title}</h1>
-      <p>{result?.description}</p>
+
+      <p
+        dangerouslySetInnerHTML={{
+          __html: result?.description || "",
+        }}
+      />
     </>
   );
 };
