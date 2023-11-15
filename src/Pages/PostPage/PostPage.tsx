@@ -17,7 +17,7 @@ const PostPage = () => {
   return (
     <div className="post-single">
       <div className="post-single-current">
-        <CurrentPost postState={posts_getById_state} postId={post_id} />
+        <CurrentPost postState={posts_getById_state} postId={parseInt(post_id|| "")} />
       </div>
 
       <div className="post-single-other">

@@ -1,6 +1,6 @@
-import { post } from "./postType";
+import { postPayload } from "../../Types/posts";
 
-export function getFormData(post: post, user_id: number): FormData {
+export function getFormData(post: postPayload, user_id: number): FormData {
     const formData = new FormData();
     formData.append("title", post.title);
     formData.append("description", post.description);

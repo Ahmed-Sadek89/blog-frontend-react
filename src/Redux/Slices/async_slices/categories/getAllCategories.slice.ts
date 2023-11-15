@@ -1,9 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { api_link } from "../../../../assets/env";
-import { PostGetAllOutput, PostOutput, postGetAllState, postState } from "../../interfaces/post";
+import axios from "axios";
+import {
+  categoryGetAllOutput,
+  categoryGetAllState,
+} from "../../interfaces/categories";
 
-const initialState: postGetAllState = {
+const initialState: categoryGetAllState = {
   data: {
     status: 0,
     result: [],
@@ -12,11 +15,11 @@ const initialState: postGetAllState = {
   error: false,
 };
 
-export const posts_getAll = createAsyncThunk<PostGetAllOutput>(
-  "posts/getLatestPosts",
+export const categories_getAll = createAsyncThunk<categoryGetAllOutput>(
+  "categories/getAllCategories",
   async (__, { rejectWithValue }) => {
     try {
-      const res = await axios.get(`${api_link}/posts/getLatestPosts`, {});
+      const res = await axios.get(`${api_link}/categories/getAllCategories`);
       return res.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
@@ -24,13 +27,13 @@ export const posts_getAll = createAsyncThunk<PostGetAllOutput>(
   }
 );
 
-const postsSlice = createSlice({
-  name: "posts",
+const categories_getAll_slice = createSlice({
+  name: "categories/getAllCategories",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(posts_getAll.pending, (state) => {
+      .addCase(categories_getAll.pending, (state) => {
         state.loading = true;
         state.data = {
           status: 0,
@@ -38,16 +41,16 @@ const postsSlice = createSlice({
         };
         state.error = false;
       })
-      .addCase(posts_getAll.fulfilled, (state, action) => {
-        state.loading = false;
+      .addCase(categories_getAll.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.data = {
-          status: action.payload.status,
-          result: action.payload.result,
+          status: payload.status,
+          result: payload.result,
         };
+        state.error = false;
       })
-      .addCase(posts_getAll.rejected, (state, action) => {
-        let payload = action.payload as PostGetAllOutput;
+      .addCase(categories_getAll.rejected, (state, action) => {
+        let payload = action.payload as categoryGetAllOutput;
         state.loading = false;
         state.data = {
           status: payload.status,
@@ -58,4 +61,4 @@ const postsSlice = createSlice({
   },
 });
 
-export default postsSlice.reducer;
+export default categories_getAll_slice.reducer;

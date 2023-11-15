@@ -1,4 +1,4 @@
-import { postType } from "../../Types/types";
+import { postInfo } from "../../Types/posts";
 
 export type props = {
     postState: {
@@ -6,8 +6,8 @@ export type props = {
       error: boolean;
       data: {
         status: number;
-        result: postType | undefined;
+        result: postInfo| {};
       };
     };
-    postId: string | undefined;
+    postId: number;
   };

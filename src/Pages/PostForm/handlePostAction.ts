@@ -1,14 +1,14 @@
 import React from "react";
-import { useLocation, useParams } from "react-router-dom";
-import { post } from "./postType";
+import { useLocation } from "react-router-dom";
 import getUserId from "./getUserId";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../Redux/store";
 import { getFormData } from "./formData";
 import insertNewPost from "./insertNewPost";
 import updateThePost from "./updateThePost";
+import { postPayload } from "../../Types/posts";
 
-const handlePostAction = (post: post) => {
+const handlePostAction = (post: postPayload) => {
   const dispatch = useDispatch<AppDispatch>();
   const { state } = useLocation();
   const user_id = getUserId();

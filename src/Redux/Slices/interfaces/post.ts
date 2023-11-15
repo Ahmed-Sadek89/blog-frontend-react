@@ -1,39 +1,49 @@
+import { postInfo } from "../../../Types/posts";
+
+// general
 export type postId = {
   id: number;
+};
+export type postByCatId = {
+  cat_id: number;
 };
 
 export type PostInput = FormData;
 
 export type PostInputWithId = {
-  id: number,
-  formData: FormData
+  id: number;
+  formData: FormData;
 };
 
+// output
 export type PostOutput = {
   status: number;
-  result: string| post| post[];
+  result: string;
+};
+export type PostGetAllOutput = {
+  status: number;
+  result: postInfo[];
+};
+export type PostByParamOutput = {
+  status: number;
+  result: postInfo| {};
 };
 
-export type post = {
-  id: number;
-  title: string;
-  description: string;
-  post_image: string;
-  category: {
-    cat_id: number;
-    cat_name: string;
-  };
-  user: {
-    username: string;
-    email: string;
-    image: string;
-  };
-  published_at: string,
-};
 
+// states
 export type postState = {
   loading: boolean;
   error: boolean;
-  data: PostOutput | post| post[];
+  data: PostOutput;
 };
 
+export type postGetAllState = {
+  loading: boolean;
+  error: boolean;
+  data: PostGetAllOutput;
+};
+export type postGetByParamState = {
+  loading: boolean;
+  error: boolean;
+  data: PostByParamOutput;
+};

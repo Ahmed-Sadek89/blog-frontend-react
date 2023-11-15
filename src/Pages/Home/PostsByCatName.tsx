@@ -1,8 +1,8 @@
-import { postType } from "../../Types/types";
 import Post from "../../Components/Post/Post";
+import { postInfo } from "../../Types/posts";
 
 type props = {
-  data: postType[];
+  data: postInfo[];
   cat_name: string | undefined;
 };
 const PostsByCatName = ({ data, cat_name }: props) => {
@@ -12,7 +12,7 @@ const PostsByCatName = ({ data, cat_name }: props) => {
         <div className="posts_layout">
           {data
             .filter((index) => index.category.cat_name === cat_name)
-            .map((post: postType) => (
+            .map((post: postInfo) => (
               <Post post={post} key={post.id} />
             ))}
         </div>

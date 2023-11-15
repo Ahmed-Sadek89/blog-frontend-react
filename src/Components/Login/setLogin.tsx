@@ -1,9 +1,9 @@
-import { user_login } from "../../Redux/Slices/async_slices/login.slice";
-import { userLogin } from "../../Types/types";
 import Cookies from "js-cookie";
 import { AppDispatch } from "../../Redux/store";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { user_login } from "../../Redux/Slices/async_slices/users/login.slice";
+import { userLogin } from "../../Types/types";
 
 
 const setLogin = (loginData: {email: string, password: string}) => {

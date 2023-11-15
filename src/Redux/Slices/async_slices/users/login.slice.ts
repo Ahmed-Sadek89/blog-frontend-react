@@ -1,20 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { userLogin } from "../../../Types/types";
 import axios from 'axios';
-import { api_link } from "../../../assets/env";
+import { api_link } from "../../../../assets/env";
+import { userLogin, userOutput, userState } from "../../interfaces/users";
 
-
-interface loginState {
-    loading: boolean,
-    error: boolean,
-    data: userLogin
-}
-
-type loginPayload = {
-    email: string,
-    password: string
-}
-const initialState: loginState = {
+const initialState: userState = {
     loading: false,
     error: false,
     data: {
@@ -26,7 +15,7 @@ const initialState: loginState = {
 
 
 
-export const user_login = createAsyncThunk<userLogin, loginPayload>(
+export const user_login = createAsyncThunk<userOutput, userLogin>(
     'user/login',
     async (payload, { rejectWithValue }) => {
         try {
@@ -63,7 +52,7 @@ export const user_login_slice = createSlice({
             state.error = false
         })
         .addCase(user_login.rejected, (state, action) => {
-            const payload = action.payload as userLogin;
+            const payload = action.payload as userOutput;
             state.data = {
                 status: payload.status,
                 result: payload.result,

@@ -1,9 +1,9 @@
 import React from "react";
-import { user_register } from "../../Redux/Slices/async_slices/register.slice";
 import { userRegister } from "../../Types/types";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../Redux/store";
+import { user_register } from "../../Redux/Slices/async_slices/users/register.slice";
 
 type registeredData = { username: string; email: string; password: string };
 

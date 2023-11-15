@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { postType } from "../../Types/types";
+import { postInfo } from "../../Types/posts";
 
 type props = {
-  post: postType;
+  post: postInfo;
 };
 
 const Post = ({ post }: props) => {

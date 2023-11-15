@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import routes from "./Routes/routes";
 import { posts_getAll } from "./Redux/Slices/async_slices/posts/getPosts.slice";
-import { categories_getAll } from "./Redux/Slices/async_slices/getAllCategories.slice";
+import { categories_getAll } from "./Redux/Slices/async_slices/categories/getAllCategories.slice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "./Redux/store";
 

@@ -3,21 +3,21 @@ import { post_getById } from "../../Redux/Slices/async_slices/posts/post_getById
 import { AppDispatch } from "../../Redux/store";
 import { posts_getByCategory } from "../../Redux/Slices/async_slices/posts/posts_getByCategory.slice";
 import { useNavigate, useParams } from "react-router-dom";
-import { postType } from "../../Types/types";
 import { useDispatch } from "react-redux";
+import { postInfo } from "../../Types/posts";
 
 const fetchPosts = () => {
   const { post_id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    dispatch(post_getById(parseInt(post_id || ""))).then(({ payload }) => {
+    dispatch(post_getById({id: parseInt(post_id || "")})).then(({ payload }) => {
       let res = payload as {
         status: number;
-        result: postType;
+        result: postInfo;
       };
       if (res.status === 200) {
-        dispatch(posts_getByCategory(res?.result?.category?.cat_id));
+        dispatch(posts_getByCategory({cat_id: res?.result?.category?.cat_id}));
       } else {
         navigate("/");
       }

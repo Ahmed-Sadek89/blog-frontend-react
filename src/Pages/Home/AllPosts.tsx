@@ -1,8 +1,8 @@
-import { postType } from "../../Types/types";
 import Post from "../../Components/Post/Post";
+import { postInfo } from "../../Types/posts";
 
 type props = {
-  data: postType[];
+  data: postInfo[];
   cat_name: string | undefined;
 };
 const AllPosts = ({ data, cat_name }: props) => {
@@ -10,7 +10,7 @@ const AllPosts = ({ data, cat_name }: props) => {
     <>
       {data?.length !== 0 && cat_name === undefined && (
         <div className="posts_layout">
-          {data?.map((post: postType) => (
+          {data?.map((post: postInfo) => (
             <Post post={post} key={post.id} />
           ))}
         </div>

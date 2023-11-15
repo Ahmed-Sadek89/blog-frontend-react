@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { rootState } from "../../Redux/store";
-import { post } from "./postType";
+import { postPayload } from "../../Types/posts";
 
 type props = {
   categoryId: number| undefined;
-  setCategoryId: React.Dispatch<React.SetStateAction<post>>;
+  setCategoryId: React.Dispatch<React.SetStateAction<postPayload>>;
 };
 
 const CategoriesBtn = ({ categoryId, setCategoryId }: props) => {

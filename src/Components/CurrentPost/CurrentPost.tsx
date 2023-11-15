@@ -9,18 +9,19 @@ import { AppDispatch } from "../../Redux/store";
 import { getDecodedToken } from "../../assets/getDecodedToken";
 import { props } from "./CurrentPostProps";
 import { delete_post_by_id } from "../../Redux/Slices/async_slices/posts/delete_post_by_id.slice";
+import { postInfo } from "../../Types/posts";
 
 const CurrentPost = ({ postState, postId }: props) => {
   const dispatch = useDispatch<AppDispatch>();
   const token = Cookies.get("authorization") || "";
   const isAuth = token ? true : false;
-  const { result } = postState.data;
+  const result = postState.data.result as postInfo;
   // check if user make update -> change date
-  const dateChanged = getDateChanged(result?.last_modified_at);
+  const dateChanged = getDateChanged(result?.published_at);
   let decoded = getDecodedToken(token);
-  const isUserOwnPost = decoded.email === result?.user.email;
+  const isUserOwnPost = decoded.email === result?.user?.email;
 
-  const deletePost = (postId: string | undefined) => {
+  const deletePost = (postId: number) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -31,7 +32,7 @@ const CurrentPost = ({ postState, postId }: props) => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await dispatch(delete_post_by_id({ id: parseInt(postId || '') }))
+        await dispatch(delete_post_by_id({ id: postId }))
           .then(({ payload }) => {
             const res = payload as {
               status: number;
@@ -49,9 +50,9 @@ const CurrentPost = ({ postState, postId }: props) => {
     <>
       <img src={result?.post_image} alt={result?.title} />
       <div className="post-single-current-owner">
-        <img src={result?.user.image} alt={result?.user.username} />
+        <img src={result?.user?.image} alt={result?.user?.username} />
         <div className="post-single-current-owner-texts">
-          <span>{result?.user.username}</span>
+          <span>{result?.user?.username}</span>
           <span>{dateChanged}</span>
         </div>
         {/* put update delete option if user is auth && this is user's post */}

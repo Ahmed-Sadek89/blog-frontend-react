@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { post } from "./postType";
 import { useLocation } from "react-router-dom";
+import { postPayload } from "../../Types/posts";
 
 const postState = () => {
   const { state } = useLocation();
-  return useState<post>({
+  return useState<postPayload>({
     title: state?.title || "",
     description: state?.description || "",
     post_image: state?.post_image || null,

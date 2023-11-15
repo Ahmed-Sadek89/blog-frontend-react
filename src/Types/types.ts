@@ -16,32 +16,4 @@ export type userLogin = {
 
 
 
-export type categoryType = {
-    id: number,
-    cat_name: string,
-    created_at: string
-}
 
-export type postType = {
-    id: number,
-    title: string,
-    description: string,
-    post_image: string,
-    published_at: string,
-    last_modified_at: string,
-    category: {
-        cat_id: number,
-        cat_name: string,
-    },
-    user: {
-        username: string,
-        email: string,
-        image: string,
-    },
-}
-
-export type postContextType = {
-    loading: boolean,
-    error: boolean,
-    data: postType[]
-}

@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { postType } from "../../Types/types";
+import { postInfo } from "../../Types/posts";
 
 type props = {
   postId: string | undefined;
-  posts: postType[] | [];
+  posts: postInfo[] ;
 };
 const OtherPosts = ({ posts, postId }: props) => {
   const navigate = useNavigate();
