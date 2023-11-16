@@ -1,0 +1,37 @@
+
+.rootProgress{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: $sky_blue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: $sky_blue;
+}
+.progress{
+    position: relative;
+    height: 30px;
+    width: 80vw;
+    border: 10px solid #f4a261;
+    border-radius: 15px;
+}
+.progress .color{
+    position: absolute;
+    background-color: #ffffff;
+    width: 0px;
+    height: 10px;
+    border-radius: 15px;
+    animation: progres 4s infinite linear;    
+}
+@keyframes progres{
+    0%{
+      width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+};

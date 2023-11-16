@@ -16,3 +16,12 @@ export const checkLogout = () => {
     }
   });
 };
+
+export const getErrorMsg = () => {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong!',
+    footer: '<a href="/">Reload</a>'
+  })
+}

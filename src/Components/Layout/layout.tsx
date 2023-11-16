@@ -3,6 +3,8 @@ import Navbar from "../Navbar/navbar";
 import Footer from "../footer/footer";
 import { useSelector } from "react-redux";
 import { rootState } from "../../Redux/store";
+import Loading from "../Loading/Loading";
+import { getErrorMsg } from "../../assets/sweetAlert";
 
 const layout = () => {
   const { pathname } = useLocation();
@@ -19,8 +21,8 @@ const layout = () => {
   }
   return (
     <>
-      {loading === true && <h1>loading...</h1>}
-      {error === true && <h1>error connecting...</h1>}
+      {loading === true && <Loading />}
+      {error === true && getErrorMsg()}
 
       {error === false && loading === false && (
         <div className="layout container">

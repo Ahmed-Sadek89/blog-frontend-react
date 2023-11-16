@@ -7,6 +7,9 @@ import handlePostAction from "./handlePostAction";
 import postState from "./postState";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { rootState } from "../../Redux/store";
+import LoadingFormAction from "../../Components/LoadingFormAction/LoadingFormAction";
 
 function PostForm() {
   checkAuth();
@@ -18,7 +21,9 @@ function PostForm() {
   );
 
   const handleSubmit = handlePostAction({ ...post, post_image });
-
+  const addPostState = useSelector((state: rootState) => state.addNewPostState)
+  const updatePostState = useSelector((state: rootState) => state.updatePostState)
+  const isSubmitted = addPostState.loading || updatePostState.loading
   return (
     <form
       className="form-post"
@@ -63,9 +68,18 @@ function PostForm() {
           <ImageInput post_image={post_image} setPost_image={setPost_image} />
           {/* for input file */}
           <div className="form-post-right-side-publish-btn">
-            <button id="uploadFile">save as a draft</button>
-            <button type="submit">Publish</button>
+            <button id="uploadFile" disabled={true} >save as a draft</button>
+            <button type="submit" disabled={isSubmitted} style={{ cursor: `${isSubmitted ? "not-allowed" : "pointer"}` }}>Publish</button>
           </div>
+          <div style={{ display: 'flex', justifyContent: "center" }}>
+            {isSubmitted &&
+              <LoadingFormAction />
+            }
+          </div>
+          {
+            addPostState.error &&
+            <p style={{ color: "red", fontWeight: "bold" }}>{addPostState.data.result}</p>
+          }
         </div>
 
         <div className="form-post-right-side-category">
