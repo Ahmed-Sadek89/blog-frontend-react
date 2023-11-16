@@ -19,8 +19,6 @@ function PostForm() {
 
   const handleSubmit = handlePostAction({ ...post, post_image });
 
-  // 1 - UPDATE SLICE
-  // 2 - MAKE LAYUT FOR LOADING AND EROR
   return (
     <form
       className="form-post"
@@ -42,7 +40,6 @@ function PostForm() {
         <ReactQuill
           theme="snow"
           value={post.description}
-          // onChange={setDescription}
           onChange={(e: string) =>
             setPost((prev) => {
               return { ...prev, description: e };

@@ -1,56 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-
-.padding_margin{
-    margin: 0px;
-    padding: 0px;
+.padding_margin {
+  margin: 0px;
+  padding: 0px;
 }
 
-*{
+* {
+  @extend .padding_margin;
+  box-sizing: border-box;
+}
+
+body,
+#root {
+  height: 100vh;
+  font-family: "Nunito", sans-serif;
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0px 20px;
+    margin: 0px auto;
+  }
+
+  ul {
+    list-style: none;
     @extend .padding_margin;
-    box-sizing: border-box;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+  }
+  input {
+    &:focus {
+      outline: none;
+    }
+  }
+  input[type="file"] {
+    color: transparent;
+  }
 }
 
-body, #root{
-    height: 100vh;
-    font-family: 'Nunito', sans-serif;
-
-    .container{
-        width: 100%;
-        max-width: 1200px;
-        padding: 0px 20px;
-        margin: 0px auto;
+.posts_layout {
+  .post:nth-child(odd) {
+    @include xs {
+      flex-direction: column-reverse;
     }
-
-    ul{
-        list-style: none;
-        @extend .padding_margin;
+    @include lg {
+      flex-direction: row;
     }
-
-
-    button{
-        cursor: pointer;
+  }
+  .post:nth-child(even) {
+    @include xs {
+      flex-direction: column-reverse;
     }
-
-    a{
-        text-decoration: none;
-        color: inherit;
+    @include lg {
+      flex-direction: row-reverse;
     }
-
-    img{
-        max-width: 100%;
-    }
-    input{
-        &:focus{
-            outline: none;
-        }
-    }
-    input[type='file'] {
-        color: transparent;
-    }
+  }
 }
-
-.posts_layout{
-    .post:nth-child(odd){flex-direction: row;}
-    .post:nth-child(even){flex-direction: row-reverse;}
+.active {
+  font-weight: bold;
 }

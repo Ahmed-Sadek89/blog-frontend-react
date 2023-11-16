@@ -13,14 +13,21 @@
     }
   }
   &-right {
-    @extend .navbarItems;
     @include xs {
       display: none;
     }
     @include lg {
       display: flex;
     }
+    @extend .navbarItems;
     flex-direction: row;
+    a {
+      color: #333;
+    }
+    #write {
+      background: $sky_blue;
+      color: $white;
+    }
   }
   &-collapse-icon {
     cursor: pointer;
@@ -41,6 +48,16 @@
     display: none;
   }
   flex-direction: column;
+  background-color: $sky_blue;
+  margin: 10px 0px;
+  a {
+    padding: 5px 0px;
+    color: #333;
+  }
+  #write {
+    background: $white;
+    color: #333;
+  }
 }
 
 .navbarItems {
@@ -48,21 +65,43 @@
   gap: 20px;
   text-transform: uppercase;
   flex-wrap: wrap;
-  li {
+  a {
     cursor: pointer;
-    color: #333;
     font-size: 15px;
     transition: $transition;
     &:hover {
       font-weight: bold;
     }
   }
-  li:nth-child(7) {
+  #email {
     font-weight: bold;
   }
-  li:nth-child(8) {
-    background: $sky_blue;
+  #write {
     padding: 15px 10px;
     border-radius: 50%;
+    &:hover {
+      font-weight: normal;
+    }
+  }
+  a:nth-last-child(1) {
+    color: #ffffff;
+    padding: 15px 10px;
+    border-radius: 10px;
+    @include xs {
+      margin-bottom: 10px;
+    }
+    @include lg {
+      margin: 0px;
+    }
+    &:hover {
+      font-weight: normal;
+    }
+  }
+  #logout {
+    background-color: #dd3333;
+    
+  }
+  #login {
+    background-color: #28a745;
   }
 }

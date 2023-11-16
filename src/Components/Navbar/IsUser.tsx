@@ -15,20 +15,20 @@ const IsUser = () => {
     <>
       {isUser === true ? (
         <>
-          <li>
-            <span>{decoded?.email}</span>
-          </li>
-          <li onClick={() => navigate(`/write`)}>
-            <span>write</span>
-          </li>
-          <li onClick={handleLogout}>
-            <span>logout</span>
-          </li>
+          <a id="email" >
+            {decoded?.email}
+          </a>
+          <a onClick={() => navigate(`/write`)} id="write">
+            write
+          </a>
+          <a onClick={handleLogout} id="logout">
+            logout
+          </a>
         </>
       ) : (
-        <li onClick={() => navigate(`/login`)}>
-          <span>login</span>
-        </li>
+        <a onClick={() => navigate(`/login`)} id="login">
+          login
+        </a>
       )}
     </>
   );

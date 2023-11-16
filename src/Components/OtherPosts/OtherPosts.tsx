@@ -3,7 +3,7 @@ import { postInfo } from "../../Types/posts";
 
 type props = {
   postId: string | undefined;
-  posts: postInfo[] ;
+  posts: postInfo[];
 };
 const OtherPosts = ({ posts, postId }: props) => {
   const navigate = useNavigate();

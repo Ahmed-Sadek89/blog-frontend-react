@@ -1,46 +1,63 @@
-.post-single-current{
-    &-owner{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 20px;
-        img{
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-        }
-        &-texts{
-            display: flex;
-            flex-direction: column;
-            span{
-                &:nth-child(1){
-                    font-weight: bold;
-                    text-transform: capitalize;
-                }
-            }
-        }
-        &-options{
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-            a, img{
-                width: 25%;
-                height: 25%;
-                cursor: pointer;
-                img{
-                    width: auto;
-                    height: auto;
-                }
-            }
-        }
+.post-single-current {
+  &-img {
+    object-fit: cover;
+  }
+  &-owner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
     }
-    
-    h1{
-        text-transform: capitalize;
-        font-size: 40px;
-        font-weight: 800;
+    &-texts {
+      display: flex;
+      flex-direction: column;
+      span {
+        &:nth-child(1) {
+          font-weight: bold;
+          text-transform: capitalize;
+        }
+      }
     }
-    p{
-        font-weight: 800;
+    &-options {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      a,
+      img {
+        width: 25%;
+        height: 25%;
+        cursor: pointer;
+        img {
+          width: auto;
+          height: auto;
+        }
+      }
     }
+  }
+
+  h1 {
+    text-transform: capitalize;
+    font-weight: 800;
+    @include xs {
+      font-size: 25px;
+      height: 100%;
+    }
+    @include lg {
+      font-size: 40px;
+      height: 50%;
+    }
+  }
+  p {
+    @include xs {
+      font-weight: normal;
+    }
+    @include lg {
+      font-weight: 800;
+    }
+  }
 }

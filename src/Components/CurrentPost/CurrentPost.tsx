@@ -48,7 +48,7 @@ const CurrentPost = ({ postState, postId }: props) => {
   };
   return (
     <>
-      <img src={result?.post_image} alt={result?.title} />
+      <img src={result?.post_image} alt={result?.title} className="post-single-current-img"/>
       <div className="post-single-current-owner">
         <img src={result?.user?.image} alt={result?.user?.username} />
         <div className="post-single-current-owner-texts">

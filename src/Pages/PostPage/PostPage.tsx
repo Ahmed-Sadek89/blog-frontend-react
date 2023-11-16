@@ -1,4 +1,4 @@
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { rootState } from "../../Redux/store";
 import CurrentPost from "../../Components/CurrentPost/CurrentPost";
@@ -17,9 +17,8 @@ const PostPage = () => {
   return (
     <div className="post-single">
       <div className="post-single-current">
-        <CurrentPost postState={posts_getById_state} postId={parseInt(post_id|| "")} />
+        <CurrentPost postState={posts_getById_state} postId={parseInt(post_id || "")} />
       </div>
-
       <div className="post-single-other">
         <h3>other posts you may like</h3>
         <OtherPosts

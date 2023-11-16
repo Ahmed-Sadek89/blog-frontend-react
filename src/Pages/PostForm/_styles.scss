@@ -1,86 +1,102 @@
-.form-post{
-    display: flex;
+.form-post {
+  display: flex;
+  @include xs {
+    flex-direction: column;
+    gap: 50px;
+  }
+  @include lg {
     flex-direction: row;
     gap: 20px;
-    &-left-side,
-    &-right-side{
+  }
+  &-left-side,
+  &-right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &-left-side {
+    flex: 2;
+    justify-content: flex-start;
+    input {
+      &:nth-child(1) {
+        padding: 20px 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+    }
+  }
+  &-right-side {
+    flex: 1;
+    @include xs {
+      flex-direction: column-reverse;
+      margin: 20px 0px;
+    }
+    @include lg {
+      flex-direction: column;
+      margin: 0px;
+    }
+    &-publish,
+    &-category {
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &-publish {
+      text-transform: capitalize;
+      h3 {
+        color: #333;
+      }
+      p {
+        span {
+          &:nth-child(1) {
+            color: #333;
+            font-weight: bold;
+          }
+          &:nth-child(2) {
+            font-size: 14px;
+          }
+        }
+      }
+      label {
+        text-decoration: underline;
+        color: #333;
+        cursor: pointer;
+      }
+      &-btn {
         display: flex;
-        flex-direction: column;
-        gap: 20px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        button {
+          padding: 10px;
+          text-transform: capitalize;
+          border-radius: 5px;
+          &:nth-child(1) {
+            border: 1px solid teal;
+            background: transparent;
+            color: teal;
+          }
+          &:nth-child(2) {
+            background: teal;
+            color: white;
+          }
+        }
+      }
     }
-    &-left-side{
-        flex: 2;
-        justify-content: flex-start;
-        input{
-            &:nth-child(1){
-                padding: 20px 10px;
-                border-radius: 5px;
-                border: 1px solid #ddd;
-            }
-        }
+    &-category {
+      h3 {
+        color: #333;
+      }
+      &-btn {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: teal;
+        text-transform: capitalize;
+      }
     }
-    &-right-side{
-        flex: 1;
-        &-publish,
-        &-category{
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            padding: 20px ;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        &-publish{
-            text-transform: capitalize;
-            h3{
-                color: #333
-            }
-            p{
-                span{
-                    &:nth-child(1){
-                        color: #333;
-                        font-weight: bold;
-                    }
-                    &:nth-child(2){
-                        font-size: 14px;
-                    }
-                }
-            }
-            label{
-                text-decoration: underline;
-                color: #333;
-                cursor: pointer;
-            }
-            &-btn{
-                display: flex;
-                justify-content: space-between;
-                button{
-                    padding: 10px;
-                    text-transform: capitalize;
-                    border-radius: 5px;
-                    &:nth-child(1){
-                        border: 1px solid teal;
-                        background: transparent;
-                        color: teal;
-                    }
-                    &:nth-child(2){
-                        background: teal;
-                        color: white;
-                    }
-                }
-            }
-        }
-        &-category{
-            h3{
-                color: #333;
-            }
-            &-btn{
-                display: flex;
-                align-items: center;
-                gap: 5px;
-                color: teal;
-                text-transform: capitalize;
-            }
-        }
-    }
+  }
 }

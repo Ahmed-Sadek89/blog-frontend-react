@@ -1,12 +1,17 @@
 footer{
     background-color: $sky_blue;
-    padding: 20px;
+    padding: 10px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     img{
         width: 70px;
         height: 70px;
+    }
+    @include xs{
+        flex-direction: column;
+    }
+    @include md{
+        flex-direction: row;
     }
 }
