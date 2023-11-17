@@ -32,10 +32,7 @@ const IsUser = ({ setToggleNavbar }: props) => {
           }} id="write">
             write
           </a>
-          <a onClick={() => {
-
-            handleLogout
-          }} id="logout">
+          <a onClick={handleLogout} id="logout">
             logout
           </a>
         </>
