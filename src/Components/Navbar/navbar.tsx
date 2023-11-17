@@ -15,14 +15,14 @@ const Navbar = () => {
           <img src={Logo} alt="navbar-logo" />
         </div>
         <div className="navbar-right">
-          <CategoryItems />
-          <IsUser />
+          <CategoryItems setToggleNavbar={setToggleNavbar}/>
+          <IsUser  setToggleNavbar={setToggleNavbar}/>
         </div>
         <div className="navbar-collapse-icon" onClick={() => setToggleNavbar(prev => !prev)}>
           <img src={require('../../Images/navbar.png')} alt="navbar-collapse" width={'35px'} height={'50px'} />
         </div>
       </div>
-      <NavbarCollapse toggleNavbar={toggleNavbar} />
+      <NavbarCollapse toggleNavbar={toggleNavbar} setToggleNavbar={setToggleNavbar} />
     </>
   );
 };
