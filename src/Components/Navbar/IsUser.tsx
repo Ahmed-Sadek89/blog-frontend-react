@@ -34,7 +34,6 @@ const IsUser = ({ setToggleNavbar }: props) => {
           </a>
           <a onClick={() => {
 
-            setToggleNavbar(prev => !prev)
             handleLogout
           }} id="logout">
             logout
@@ -43,7 +42,6 @@ const IsUser = ({ setToggleNavbar }: props) => {
       ) : (
         <a onClick={() => {
 
-          setToggleNavbar(prev => !prev)
           navigate('/login')
         }} id="login">
           login
